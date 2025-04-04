@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Camera } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Home = () => {
   const [availableDiseases, setAvailableDiseases] = useState([]);
 
   const crops = [
-    "Paddy", "Wheat", "Chickpea", "Tomatoes", "Chillies", 
+    "Paddy", "Wheat", "Chickpea", "Tomatoes", "Chillies",
     "Sugarcane", "Sunflower", "Sorghum (Jowar)", "Pigeonpea (Tur)",
     "Soybean", "Cotton", "Rabi Crop", "Linseed", "Green gram",
     "Black gram", "Notable Crop", "Orange", "Traditional Crop",
@@ -48,6 +49,11 @@ const Home = () => {
     return diseaseMap[crop] || [];
   };
 
+  const getDiseaseImageUrl = (crop, disease) => {
+    const query = encodeURIComponent(`${crop} ${disease}`);
+    return `https://www.google.com/search?tbm=isch&q=${query}`;
+  };
+
   useEffect(() => {
     if (selectedCrop) {
       setIsLoading(true);
@@ -80,7 +86,7 @@ const Home = () => {
       >
         <div className="absolute -top-20 -right-20 w-40 h-40 bg-green-200 rounded-full opacity-20"></div>
         <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-green-300 rounded-full opacity-10"></div>
-        
+
         <div className="relative z-10">
           <div className="text-center mb-8">
             <motion.h1 
@@ -107,6 +113,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
+            {/* Crop Selector */}
             <div>
               <label className="block text-gray-700 font-medium mb-2 text-lg">Select Crop</label>
               <select
@@ -121,19 +128,44 @@ const Home = () => {
               </select>
             </div>
 
+            {/* Disease Selector Dropdown */}
             <div>
               <label className="block text-gray-700 font-medium mb-2 text-lg">Select Disease</label>
-              <select
-                className={`w-full p-4 border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg shadow-sm transition-all ${!selectedCrop || isLoading ? 'border-gray-200 bg-gray-50' : 'border-green-200'}`}
-                value={selectedDisease}
-                onChange={(e) => setSelectedDisease(e.target.value)}
-                disabled={!selectedCrop || isLoading}
-              >
-                <option value="">{isLoading ? 'Loading diseases...' : availableDiseases.length ? 'Select disease' : 'Select crop first'}</option>
-                {availableDiseases.map(disease => (
-                  <option key={disease} value={disease}>{disease}</option>
-                ))}
-              </select>
+              {isLoading ? (
+                <p className="text-gray-400 p-4 border-2 border-gray-200 rounded-xl bg-gray-50">Loading diseases...</p>
+              ) : !selectedCrop ? (
+                <p className="text-gray-400 p-4 border-2 border-gray-200 rounded-xl bg-gray-50">Select crop first</p>
+              ) : availableDiseases.length === 0 ? (
+                <p className="text-gray-400 p-4 border-2 border-gray-200 rounded-xl bg-gray-50">No diseases available</p>
+              ) : (
+                <div className="relative">
+                  <select
+                    className="w-full p-4 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg shadow-sm transition-all"
+                    value={selectedDisease}
+                    onChange={(e) => setSelectedDisease(e.target.value)}
+                  >
+                    <option value="">Select disease</option>
+                    {availableDiseases.map((disease) => (
+                      <option key={disease} value={disease}>
+                        {disease}
+                      </option>
+                    ))}
+                  </select>
+
+                  {/* Camera Icon */}
+                  {selectedDisease && (
+                    <a
+                      href={getDiseaseImageUrl(selectedCrop, selectedDisease)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-green-600 hover:text-green-800"
+                      title={`View ${selectedDisease} images`}
+                    >
+                      <Camera className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </motion.div>
 

@@ -48,7 +48,7 @@ const Login = () => {
         
         <div className="flex flex-col items-center mb-6">
           <img src={agriLogo} alt="AgriCompare Logo" className="w-16 h-16 mb-2" />
-          <h2 className="text-2xl font-bold text-green-800">Welcome to AgriCompare</h2>
+          <h2 className="text-2xl font-bold text-green-800">Welcome to AgriMed</h2>
           <p className="text-green-600 text-sm text-center">Compare crop diseases & find the best solutions</p>
         </div>
 
