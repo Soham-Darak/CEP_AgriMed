@@ -433,8 +433,6 @@ const diseaseInfo = {
         prevention: "Use disease-free seeds, practice crop rotation, apply copper sprays"
     },
 
-<<<<<<< HEAD
-=======
     // Rabi Crop Diseases
 
     "Leaf Rust": {
@@ -844,17 +842,14 @@ const diseaseInfo = {
         prevention: "Crop rotation, resistant varieties, soil drenching"
     },
 
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
+
     // Banana Diseases
     "Panama Disease": {
         description: "Panama disease (Fusarium wilt) is a soil-borne fungal disease threatening global banana production. The tropical race 4 (TR4) strain affects Cavendish bananas and persists in soil for decades. There is no cure for infected plants.",
         image: "https://www.google.com/search?q=banana+panama+disease&tbm=isch",
         causes: "Fungus Fusarium oxysporum f. sp. cubense",
-<<<<<<< HEAD
         symptoms: "Yellowing leaves, splitting of pseudostem, vascular discoloration",
-=======
         symptoms: "Yellowing lSesamumeaves, splitting of pseudostem, vascular discoloration",
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
         prevention: "Use disease-free plants, prevent soil movement, plant resistant cultivars"
     },
     "Sigatoka": {

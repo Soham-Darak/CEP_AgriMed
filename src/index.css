@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-=======
 /* index.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
@@ -14,4 +9,3 @@ body {
   font-family: 'Poppins', sans-serif;
   @apply bg-white text-gray-800;
 }
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)

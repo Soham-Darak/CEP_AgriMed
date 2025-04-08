@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useLocation, useNavigate } from 'react-router-dom';
-=======
 import { useLocation, useNavigate, Link } from 'react-router-dom';
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Description from './Description';
@@ -18,7 +14,6 @@ const Result = () => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulate loading delay
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
@@ -30,13 +25,6 @@ const Result = () => {
 
   const handleShare = () => {
     if (navigator.share) {
-<<<<<<< HEAD
-      navigator.share({
-        title: `${crop} - ${disease} Treatment`,
-        text: `Check out these treatments for ${disease} in ${crop}`,
-        url: window.location.href
-      }).catch(err => console.log('Error sharing:', err));
-=======
       navigator
         .share({
           title: `${crop} - ${disease} Treatment`,
@@ -44,7 +32,6 @@ const Result = () => {
           url: window.location.href,
         })
         .catch((err) => console.log('Error sharing:', err));
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
     } else {
       navigator.clipboard.writeText(window.location.href);
       alert('Link copied to clipboard!');
@@ -52,19 +39,12 @@ const Result = () => {
   };
 
   const handleDownload = () => {
-<<<<<<< HEAD
-    // In a real app, this would generate a PDF or download the data
-=======
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
     alert('Download feature would generate a PDF report here');
   };
 
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked);
-<<<<<<< HEAD
-    // In a real app, this would save to local storage or backend
-=======
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
+    // Save bookmark to local storage or backend here
   };
 
   if (isLoading) {
@@ -72,11 +52,7 @@ const Result = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <motion.div
           animate={{ rotate: 360 }}
-<<<<<<< HEAD
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-=======
           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
           className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full"
         />
       </div>
@@ -84,32 +60,20 @@ const Result = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <motion.div 
-=======
     <motion.div
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
       className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50 p-4 md:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-<<<<<<< HEAD
-      <motion.div 
-=======
       <motion.div
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
         className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden"
         initial={{ y: 20 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="bg-gradient-to-r from-green-600 to-green-800 p-6 text-white relative">
-<<<<<<< HEAD
-          <motion.button 
-=======
           <motion.button
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
             onClick={handleBack}
             className="absolute left-6 top-6 bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all"
             whileHover={{ scale: 1.1 }}
@@ -117,15 +81,9 @@ const Result = () => {
           >
             <FiArrowLeft className="text-white text-xl" />
           </motion.button>
-<<<<<<< HEAD
-          
-          <div className="text-center px-10">
-            <motion.h1 
-=======
 
           <div className="text-center px-10">
             <motion.h1
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
               className="text-3xl font-bold"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -133,11 +91,7 @@ const Result = () => {
             >
               {crop}
             </motion.h1>
-<<<<<<< HEAD
-            <motion.h2 
-=======
             <motion.h2
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
               className="text-2xl mt-2 font-medium"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -150,26 +104,18 @@ const Result = () => {
           <div className="flex justify-center gap-4 mt-4">
             <motion.button
               onClick={toggleBookmark}
-<<<<<<< HEAD
-              className={`p-2 rounded-full ${isBookmarked ? 'bg-yellow-400 text-yellow-800' : 'bg-white/20 hover:bg-white/30'} transition-all`}
-=======
               className={`p-2 rounded-full ${
                 isBookmarked
                   ? 'bg-yellow-400 text-yellow-800'
                   : 'bg-white/20 hover:bg-white/30'
               } transition-all`}
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               title={isBookmarked ? 'Remove bookmark' : 'Bookmark this'}
             >
               <FiBookmark className="text-xl" />
             </motion.button>
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
             <motion.button
               onClick={handleShare}
               className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-all"
@@ -179,11 +125,7 @@ const Result = () => {
             >
               <FiShare2 className="text-xl" />
             </motion.button>
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
             <motion.button
               onClick={handleDownload}
               className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-all"
@@ -196,11 +138,7 @@ const Result = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
-        <motion.div 
-=======
         <motion.div
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
           className="p-6 md:p-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -210,26 +148,12 @@ const Result = () => {
           <TreatmentTable crop={crop} disease={disease} />
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-<<<<<<< HEAD
-            <motion.div 
-=======
-            {/* Connect with Experts */}
             <motion.div
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
               className="bg-blue-50 p-4 rounded-lg border border-blue-200"
               whileHover={{ y: -5 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <h4 className="font-semibold text-blue-800 mb-2 text-lg">Need Expert Help?</h4>
-<<<<<<< HEAD
-              <p className="text-blue-700">Connect with agricultural experts in your area for personalized advice.</p>
-              <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                Find Experts
-              </button>
-            </motion.div>
-            
-            <motion.div 
-=======
               <p className="text-blue-700">
                 Connect with agricultural experts in your area for personalized advice.
               </p>
@@ -241,18 +165,12 @@ const Result = () => {
               </Link>
             </motion.div>
 
-            {/* Prevention Tips */}
             <motion.div
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
               className="bg-green-50 p-4 rounded-lg border border-green-200"
               whileHover={{ y: -5 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <h4 className="font-semibold text-green-800 mb-2 text-lg">Prevention Tips</h4>
-<<<<<<< HEAD
-              <p className="text-green-700">Learn how to prevent this disease in future crops with our guide.</p>
-              <button className="mt-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors">
-=======
               <p className="text-green-700">
                 Learn how to prevent this disease in future crops with our guide.
               </p>
@@ -264,7 +182,6 @@ const Result = () => {
                 }}
                 className="mt-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
               >
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
                 View Guide
               </button>
             </motion.div>
@@ -275,8 +192,4 @@ const Result = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Result;
-=======
-export default Result;
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)

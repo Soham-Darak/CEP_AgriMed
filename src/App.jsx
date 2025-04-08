@@ -4,43 +4,16 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Home from './components/Home';
 import Result from './components/Result';
-<<<<<<< HEAD
-=======
 import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Root path - shows Login page first */}
+        {/* Root path - Login only (no Header/Footer) */}
         <Route path="/" element={<Login />} />
-<<<<<<< HEAD
-        
-        {/* Home route */}
-        <Route path="/home" element={
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-grow container mx-auto px-4 py-6">
-              <Home />
-            </main>
-            <Footer />
-          </div>
-        } />
-        
-        {/* Result route */}
-        <Route path="/result" element={
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-grow container mx-auto px-4 py-6">
-              <Result />
-            </main>
-            <Footer />
-          </div>
-        } />
-=======
 
         {/* Home route */}
         <Route
@@ -111,14 +84,9 @@ const App = () => {
             </div>
           }
         />
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
       </Routes>
     </Router>
   );
 };
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
->>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
