@@ -192,7 +192,7 @@ const Login = () => {
           <div>
             <label className="block text-sm font-semibold text-green-700 mb-2">Type of Farming</label>
             <div className="flex gap-4">
-              {['rabi', 'kharif', 'mix'].map((type) => (
+              {['Rabi Farming', 'Kharif Farming', 'Mix Farming'].map((type) => (
                 <label key={type} className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="radio"
@@ -202,7 +202,7 @@ const Login = () => {
                     onChange={(e) => setFormData({ ...formData, farmingType: e.target.value })}
                     className="text-green-600 focus:ring-green-500"
                   />
-                  <span className="text-green-700 capitalize">{type} Farming</span>
+                  <span className="text-green-700 capitalize">{type} </span>
                 </label>
               ))}
             </div>
