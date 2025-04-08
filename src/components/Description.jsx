@@ -433,12 +433,428 @@ const diseaseInfo = {
         prevention: "Use disease-free seeds, practice crop rotation, apply copper sprays"
     },
 
+<<<<<<< HEAD
+=======
+    // Rabi Crop Diseases
+
+    "Leaf Rust": {
+    description: "Leaf rust is a fungal disease affecting wheat and other rabi crops, characterized by orange-brown pustules on leaves. It spreads rapidly in cool, humid conditions (15-22°C) and can cause yield losses up to 30%.",
+    image: "https://www.google.com/search?q=wheat+leaf+rust&tbm=isch",
+    causes: "Fungus Puccinia triticina",
+    symptoms: "Orange-brown pustules, premature leaf death",
+    prevention: "Use resistant varieties, apply fungicides at tillering stage"
+    },
+    "Powdery Mildew": {
+        description: "Powdery mildew appears as white fungal growth on leaves and stems of rabi crops. It thrives in moderate temperatures (15-21°C) with high humidity but no rain.",
+        image: "https://www.google.com/search?q=wheat+powdery+mildew&tbm=isch",
+        causes: "Fungus Blumeria graminis",
+        symptoms: "White powdery patches, yellowing leaves",
+        prevention: "Avoid dense planting, use sulfur-based fungicides"
+    },
+    "Smut": {
+        description: "Smut diseases replace grain kernels with black powdery spore masses. Common in wheat and barley, it causes both yield loss and quality reduction.",
+        image: "https://www.google.com/search?q=wheat+smut&tbm=isch",
+        causes: "Fungi Ustilago spp.",
+        symptoms: "Black powdery spore masses replacing grains",
+        prevention: "Use treated seeds, crop rotation, resistant varieties"
+    },
+    "Ergot": {
+        description: "Ergot is a fungal disease that produces dark purple sclerotia in place of grains. These contain toxic alkaloids harmful to humans and animals.",
+        image: "https://www.google.com/search?q=wheat+ergot&tbm=isch",
+        causes: "Fungus Claviceps purpurea",
+        symptoms: "Purple-black sclerotia protruding from florets",
+        prevention: "Deep plowing, use clean seeds, early planting"
+    },
+    "Loose Smut": {
+        description: "Loose smut destroys wheat and barley heads, replacing them with black spore masses that disperse easily in wind.",
+        image: "https://www.google.com/search?q=loose+smut&tbm=isch",
+        causes: "Fungus Ustilago nuda",
+        symptoms: "Black powdery masses replacing entire heads",
+        prevention: "Hot water seed treatment, systemic fungicides"
+    },
+
+    //Linseed Diseases
+    "Powdery Mildew": {
+        description: "Powdery mildew forms white fungal patches on linseed leaves and stems, reducing photosynthesis and seed yield.",
+        image: "https://www.google.com/search?q=linseed+powdery+mildew&tbm=isch",
+        causes: "Fungus Oidium lini",
+        symptoms: "White powdery growth, stunted plants",
+        prevention: "Avoid excess nitrogen, use sulfur dust"
+    },
+    "Rust": {
+        description: "Linseed rust produces orange-brown pustules on leaves and stems, causing premature defoliation and yield loss.",
+        image: "https://www.google.com/search?q=linseed+rust&tbm=isch",
+        causes: "Fungus Melampsora lini",
+        symptoms: "Orange pustules, leaf yellowing",
+        prevention: "Crop rotation, resistant varieties"
+    },
+    "Wilt": {
+        description: "Fusarium wilt causes sudden wilting and death of linseed plants, especially in waterlogged soils.",
+        image: "https://www.google.com/search?q=linseed+wilt&tbm=isch",
+        causes: "Fungus Fusarium oxysporum",
+        symptoms: "Yellowing, wilting, vascular browning",
+        prevention: "Well-drained soils, seed treatment"
+    },
+    "Alternaria Blight": {
+        description: "Alternaria causes dark brown spots on linseed leaves and capsules, reducing both yield and oil quality.",
+        image: "https://www.google.com/search?q=linseed+alternaria&tbm=isch",
+        causes: "Fungus Alternaria linicola",
+        symptoms: "Brown necrotic spots, premature capsule opening",
+        prevention: "Avoid overhead irrigation, fungicide sprays"
+    },
+    "Blight": {
+        description: "Blight causes rapid browning and death of linseed foliage, particularly in cool, wet conditions.",
+        image: "https://www.google.com/search?q=linseed+blight&tbm=isch",
+        causes: "Fungus Septoria linicola",
+        symptoms: "Brown lesions with yellow halos, defoliation",
+        prevention: "Field sanitation, balanced fertilization"
+    },
+
+    // Green Gram Diseases
+    "Yellow Mosaic": {
+        description: "Yellow mosaic virus causes bright yellow patches on leaves and stunted growth, transmitted by whiteflies.",
+        image: "https://www.google.com/search?q=green+gram+yellow+mosaic&tbm=isch",
+        causes: "Mungbean yellow mosaic virus",
+        symptoms: "Yellow mosaic pattern, stunted plants",
+        prevention: "Whitefly control, resistant varieties"
+    },
+    "Powdery Mildew": {
+        description: "Powdery mildew forms white fungal growth on green gram leaves, reducing photosynthesis and pod formation.",
+        image: "https://www.google.com/search?q=green+gram+powdery+mildew&tbm=isch",
+        causes: "Fungus Erysiphe polygoni",
+        symptoms: "White powdery patches, leaf curling",
+        prevention: "Proper spacing, neem oil sprays"
+    },
+    "Cercospora": {
+        description: "Cercospora leaf spot causes circular brown spots with yellow halos on green gram leaves, leading to defoliation.",
+        image: "https://www.google.com/search?q=green+gram+cercospora&tbm=isch",
+        causes: "Fungus Cercospora canescens",
+        symptoms: "Brown spots with yellow halos",
+        prevention: "Crop rotation, fungicide sprays"
+    },
+    "Anthracnose": {
+        description: "Anthracnose causes sunken black lesions on green gram stems, leaves and pods, especially in humid conditions.",
+        image: "https://www.google.com/search?q=green+gram+anthracnose&tbm=isch",
+        causes: "Fungus Colletotrichum truncatum",
+        symptoms: "Black sunken lesions, pod rot",
+        prevention: "Seed treatment, field sanitation"
+    },
+    "Bacterial Spot": {
+        description: "Bacterial spot creates water-soaked lesions on green gram leaves that later turn necrotic, spreading through rain splash.",
+        image: "https://www.google.com/search?q=green+gram+bacterial+spot&tbm=isch",
+        causes: "Bacterium Xanthomonas axonopodis",
+        symptoms: "Water-soaked angular spots",
+        prevention: "Copper sprays, avoid overhead irrigation"
+    },
+
+    // Black Gram Diseases
+    "Root Rot": {
+        description: "Root rot causes blackening and decay of black gram roots, leading to wilting and plant death, especially in waterlogged soils.",
+        image: "https://www.google.com/search?q=black+gram+root+rot&tbm=isch",
+        causes: "Fungus Rhizoctonia solani",
+        symptoms: "Blackened roots, wilting plants",
+        prevention: "Well-drained soils, biocontrol agents"
+    },
+    "Anthracnose": {
+        description: "Anthracnose causes dark sunken lesions on black gram leaves, stems and pods, reducing yield significantly.",
+        image: "https://www.google.com/search?q=black+gram+anthracnose&tbm=isch",
+        causes: "Fungus Colletotrichum lindemuthianum",
+        symptoms: "Dark sunken lesions with pink spore masses",
+        prevention: "Resistant varieties, seed treatment"
+    },
+    "Powdery Mildew": {
+        description: "Powdery mildew forms white fungal growth on black gram leaves, reducing photosynthesis and pod filling.",
+        image: "https://www.google.com/search?q=black+gram+powdery+mildew&tbm=isch",
+        causes: "Fungus Erysiphe polygoni",
+        symptoms: "White powdery patches, stunted growth",
+        prevention: "Neem oil sprays, proper spacing"
+    },
+    "Leaf Spot": {
+        description: "Leaf spot causes circular brown lesions on black gram leaves, leading to premature defoliation.",
+        image: "https://www.google.com/search?q=black+gram+leaf+spot&tbm=isch",
+        causes: "Fungus Cercospora canescens",
+        symptoms: "Circular brown spots with yellow halos",
+        prevention: "Fungicide sprays, crop rotation"
+    },
+    "Mosaic": {
+        description: "Mosaic virus causes yellow mottling and distortion of black gram leaves, transmitted by aphids.",
+        image: "https://www.google.com/search?q=black+gram+mosaic&tbm=isch",
+        causes: "Blackgram mosaic virus",
+        symptoms: "Yellow mosaic pattern, leaf curling",
+        prevention: "Aphid control, resistant varieties"
+    },
+
+    //Notable Crop
+    "Late Blight": {
+    description: "Late blight affects the leaves and stems, causing water-soaked lesions that rapidly turn brown and spread in cool, moist weather. It can destroy entire fields quickly.",
+    image: "https://www.google.com/search?q=late+blight+in+crops&tbm=isch",
+    causes: "Fungus Phytophthora infestans",
+    symptoms: "Brown-black leaf spots with yellow edges",
+    prevention: "Use resistant varieties, apply fungicides regularly"
+    },
+    "Early Blight": {
+        description: "Early blight causes dark concentric rings on older leaves, weakening the plant and reducing yield. It thrives in warm, humid conditions and affects many vegetable crops.",
+        image: "https://www.google.com/search?q=early+blight+in+crops&tbm=isch",
+        causes: "Fungus Alternaria solani",
+        symptoms: "Target-like spots on older leaves",
+        prevention: "Crop rotation, copper-based fungicides"
+    },
+    "Blight": {
+        description: "Blight generally refers to the quick browning and death of plant parts. It can spread fast under humid conditions and greatly impact plant health and productivity.",
+        image: "https://www.google.com/search?q=blight+disease+in+plants&tbm=isch",
+        causes: "Various fungi and bacteria",
+        symptoms: "Dry, brown, dead patches on foliage",
+        prevention: "Sanitation, fungicide sprays"
+    },
+    "Wilt": {
+        description: "Wilt diseases cause plants to suddenly droop and collapse due to blockage of water flow in stems. It’s often soil-borne and hard to eliminate once established.",
+        image: "https://www.google.com/search?q=wilt+disease+in+plants&tbm=isch",
+        causes: "Fungi like Fusarium or Verticillium",
+        symptoms: "Sudden leaf drooping and yellowing",
+        prevention: "Crop rotation, soil solarization"
+    },
+    "Rot": {
+        description: "Rot affects roots, stems, or fruits, causing decay and foul smell. It usually occurs in waterlogged or poorly drained conditions, especially during rainy seasons.",
+        image: "https://www.google.com/search?q=rot+disease+in+crops&tbm=isch",
+        causes: "Bacteria or fungi like Pythium, Rhizoctonia",
+        symptoms: "Soft, mushy, discolored plant parts",
+        prevention: "Improve drainage, avoid excess irrigation"
+    },
+
+    // Orange
+
+"Citrus Canker": {
+    description: "Citrus canker is a bacterial disease that causes lesions on leaves, stems, and fruit, reducing market value and making the fruit more prone to falling early.",
+    image: "https://www.google.com/search?q=citrus+canker&tbm=isch",
+    causes: "Bacterium Xanthomonas citri",
+    symptoms: "Brown, corky lesions with yellow halos",
+    prevention: "Copper sprays, removal of infected trees"
+    },
+    "Greening": {
+        description: "Citrus greening, also called Huanglongbing, is a serious disease that causes yellowing of shoots, small fruits, and eventual tree death. It is spread by psyllid insects.",
+        image: "https://www.google.com/search?q=citrus+greening&tbm=isch",
+        causes: "Bacterium Candidatus Liberibacter",
+        symptoms: "Yellow mottling, misshapen fruits",
+        prevention: "Control psyllids, plant certified disease-free trees"
+    },
+    "Melanose": {
+        description: "Melanose appears as small, raised dark spots on fruit and leaves. Though it doesn’t harm the fruit inside, it reduces the visual and market value of oranges.",
+        image: "https://www.google.com/search?q=orange+melanose&tbm=isch",
+        causes: "Fungus Diaporthe citri",
+        symptoms: "Tiny brown scabs or raised dots",
+        prevention: "Remove dead twigs, spray copper fungicides"
+    },
+    "Scab": {
+        description: "Scab results in rough, corky, raised lesions on fruit and leaves, affecting young tissues the most. It can cause fruit to drop prematurely.",
+        image: "https://www.google.com/search?q=orange+scab+disease&tbm=isch",
+        causes: "Fungus Elsinoë fawcettii",
+        symptoms: "Warty growths on fruit and leaves",
+        prevention: "Prune affected parts, use fungicides"
+    },
+    "Anthracnose": {
+        description: "Anthracnose in oranges causes dieback of twigs and fruit rot. Dark sunken spots may appear on mature fruit and infected twigs can dry up.",
+        image: "https://www.google.com/search?q=orange+anthracnose&tbm=isch",
+        causes: "Fungus Colletotrichum gloeosporioides",
+        symptoms: "Dark spots on fruits and twigs",
+        prevention: "Prune and destroy infected parts, apply fungicides"
+    },
+
+    //  Traditional Crop
+    "Rust": {
+    description: "Rust diseases create rust-colored pustules on the undersides of leaves, hindering photosynthesis and plant growth, especially during humid weather.",
+    image: "https://www.google.com/search?q=plant+rust+disease&tbm=isch",
+    causes: "Fungus Puccinia spp.",
+    symptoms: "Rust-colored powder on leaves",
+    prevention: "Remove infected leaves, apply fungicide"
+    },
+    "Smut": {
+        description: "Smut affects cereals and grasses by replacing grain with black powdery masses. It greatly reduces yield and spreads through infected seeds.",
+        image: "https://www.google.com/search?q=smut+disease+in+plants&tbm=isch",
+        causes: "Fungus Ustilago spp.",
+        symptoms: "Black sooty growth in flowers or grains",
+        prevention: "Use disease-free seeds, seed treatment"
+    },
+    "Blight": {
+        description: "Blight leads to browning, drying, and rotting of plant parts. It is often fast-spreading and appears under prolonged moisture or rain.",
+        image: "https://www.google.com/search?q=blight+disease+in+crops&tbm=isch",
+        causes: "Various fungi or bacteria",
+        symptoms: "Leaf and stem browning and wilting",
+        prevention: "Clean fields, apply fungicides"
+    },
+    "Wilt": {
+        description: "Wilt makes the plant droop, usually starting from the lower leaves and progressing upward. It often affects roots and stem vascular tissues.",
+        image: "https://www.google.com/search?q=wilt+disease+in+traditional+crop&tbm=isch",
+        causes: "Soil fungi like Fusarium or Verticillium",
+        symptoms: "Leaves drooping, turning yellow and dry",
+        prevention: "Use resistant varieties, treat soil"
+    },
+    "Mildew": {
+        description: "Mildew appears as white or grey patches on leaves and stems, commonly in cool and humid weather, and it hampers plant growth and yield.",
+        image: "https://www.google.com/search?q=mildew+disease+in+plants&tbm=isch",
+        causes: "Fungi like Erysiphe or Peronospora spp.",
+        symptoms: "White or grey moldy layer on leaves",
+        prevention: "Ensure air flow, spray neem or sulfur"
+    },
+
+    // Groundnut
+    "Tikka Disease": {
+    description: "Tikka disease causes brown circular spots with yellow halos on groundnut leaves, leading to early leaf fall and reduced pod formation. It is one of the most common foliar diseases.",
+    image: "https://www.google.com/search?q=groundnut+tikka+disease&tbm=isch",
+    causes: "Fungi Cercospora arachidicola and Cercosporidium personatum",
+    symptoms: "Brown spots with yellow borders, defoliation",
+    prevention: "Fungicide sprays, crop rotation, resistant varieties"
+    },
+    "Stem Rot": {
+        description: "Stem rot in groundnut leads to rotting at the base of the stem and plant collapse. White fungal growth and sclerotia can be seen near soil line.",
+        image: "https://www.google.com/search?q=groundnut+stem+rot&tbm=isch",
+        causes: "Fungus Sclerotium rolfsii",
+        symptoms: "Basal rot, white mycelium, plant lodging",
+        prevention: "Use well-drained soil, treat seeds with fungicides"
+    },
+    "Rust": {
+        description: "Rust appears as reddish-brown pustules on the underside of groundnut leaves. It spreads rapidly, reducing photosynthesis and yield especially in humid weather.",
+        image: "https://www.google.com/search?q=groundnut+rust&tbm=isch",
+        causes: "Fungus Puccinia arachidis",
+        symptoms: "Rust-colored pustules under leaves",
+        prevention: "Apply mancozeb or chlorothalonil sprays"
+    },
+    "Leaf Spot": {
+        description: "Leaf spot affects groundnut leaves with dark lesions that expand and coalesce. Severe infection leads to leaf drop and poor plant vigor.",
+        image: "https://www.google.com/search?q=groundnut+leaf+spot&tbm=isch",
+        causes: "Fungi Cercospora and Alternaria species",
+        symptoms: "Dark spots on leaves, defoliation",
+        prevention: "Fungicide sprays, avoid overhead irrigation"
+    },
+    "Blight": {
+        description: "Blight in groundnut causes irregular brown patches on leaves and stems. It may progress to rotting and drying of plant tissues if not managed early.",
+        image: "https://www.google.com/search?q=groundnut+blight&tbm=isch",
+        causes: "Fungus Alternaria alternata",
+        symptoms: "Brown lesions, leaf drying, stem blight",
+        prevention: "Seed treatment, timely fungicide application"
+    },
+
+    // Moong (Green Gram)
+    "Powdery Mildew": {
+    description: "Powdery mildew forms a white powdery coating on moong leaves and stems. It blocks sunlight, reduces photosynthesis, and weakens the plant during flowering and pod development stages.",
+    image: "https://www.google.com/search?q=moong+powdery+mildew&tbm=isch",
+    causes: "Fungus Erysiphe polygoni",
+    symptoms: "White powdery patches on leaves",
+    prevention: "Neem oil or sulfur-based fungicide sprays"
+    },
+    "Cercospora": {
+        description: "Cercospora leaf spot causes brownish-purple spots that merge and dry the leaves prematurely. It spreads rapidly in moist weather and reduces yield significantly.",
+        image: "https://www.google.com/search?q=moong+cercospora&tbm=isch",
+        causes: "Fungus Cercospora cruenta",
+        symptoms: "Small purple spots on leaves",
+        prevention: "Resistant varieties, crop sanitation, fungicides"
+    },
+    "Anthracnose": {
+        description: "Anthracnose causes dark sunken spots on moong stems, leaves, and pods. It affects seed development and can lead to plant wilting in severe cases.",
+        image: "https://www.google.com/search?q=moong+anthracnose&tbm=isch",
+        causes: "Fungus Colletotrichum lindemuthianum",
+        symptoms: "Dark lesions with pinkish spores",
+        prevention: "Seed treatment, remove infected debris"
+    },
+    "Yellow Mosaic": {
+        description: "Yellow Mosaic causes patchy yellowing and curling of moong leaves. The virus is transmitted by whiteflies and leads to stunted plant growth and poor yield.",
+        image: "https://www.google.com/search?q=moong+yellow+mosaic&tbm=isch",
+        causes: "Mungbean yellow mosaic virus (MYMV)",
+        symptoms: "Yellow patches, leaf distortion",
+        prevention: "Control whiteflies, grow resistant varieties"
+    },
+    "Leaf Spot": {
+        description: "Leaf spot disease in moong leads to brownish lesions with yellow halos. Infected leaves dry up quickly, especially during humid conditions.",
+        image: "https://www.google.com/search?q=moong+leaf+spot&tbm=isch",
+        causes: "Fungus Cercospora canescens",
+        symptoms: "Brown spots with yellow edges",
+        prevention: "Spray mancozeb, use clean seeds"
+    },
+
+    // Urd (Black Gram)
+    "Anthracnose": {
+    description: "Anthracnose forms dark lesions on black gram stems, pods, and leaves. It is a common fungal disease that can lead to significant yield loss if not controlled early.",
+    image: "https://www.google.com/search?q=black+gram+anthracnose&tbm=isch",
+    causes: "Fungus Colletotrichum lindemuthianum",
+    symptoms: "Dark spots with pinkish centers",
+    prevention: "Use disease-free seeds, apply fungicides"
+    },
+    "Powdery Mildew": {
+        description: "Powdery mildew appears as white powdery patches on leaves and stems. It weakens the plant, reduces pod formation, and spreads easily in dry, warm climates.",
+        image: "https://www.google.com/search?q=black+gram+powdery+mildew&tbm=isch",
+        causes: "Fungus Erysiphe polygoni",
+        symptoms: "White growth on leaves, stunted plant",
+        prevention: "Apply neem oil or sulfur fungicide"
+    },
+    "Leaf Spot": {
+        description: "Leaf spot disease creates brown to black spots on the leaves of black gram. It causes early leaf fall and reduced photosynthesis if not managed timely.",
+        image: "https://www.google.com/search?q=black+gram+leaf+spot&tbm=isch",
+        causes: "Fungus Cercospora canescens",
+        symptoms: "Brown circular spots with yellow margins",
+        prevention: "Use fungicides and rotate crops"
+    },
+    "Mosaic": {
+        description: "Mosaic virus causes mottled yellow patterns and crinkling of black gram leaves. It is transmitted by insects like aphids and whiteflies and stunts plant growth.",
+        image: "https://www.google.com/search?q=black+gram+mosaic&tbm=isch",
+        causes: "Blackgram mosaic virus",
+        symptoms: "Yellow patches, curling, poor growth",
+        prevention: "Control vectors, use resistant seeds"
+    },
+    "Yellow Mosaic": {
+        description: "Yellow Mosaic leads to patchy yellowing and twisting of leaves. It severely affects yield by reducing photosynthesis. It is transmitted by whiteflies.",
+        image: "https://www.google.com/search?q=black+gram+yellow+mosaic&tbm=isch",
+        causes: "Mungbean yellow mosaic virus (MYMV)",
+        symptoms: "Yellow patterns, deformed leaves",
+        prevention: "Whitefly control, grow resistant varieties"
+    },
+
+    // Sesamum
+    "Phyllody": {
+    description: "Phyllody transforms sesame flowers into leafy structures, preventing seed formation. It is caused by phytoplasma and spread by leafhoppers. Infected plants remain sterile and yield is lost.",
+    image: "https://www.google.com/search?q=sesamum+phyllody&tbm=isch",
+    causes: "Phytoplasma spread by jassids/leafhoppers",
+    symptoms: "Green leafy flowers, no seed formation",
+    prevention: "Control leafhoppers, remove infected plants"
+    },
+    "Stem Rot": {
+        description: "Stem rot in sesame causes the stem base to rot, leading to plant collapse. It thrives in poorly drained soil and humid weather conditions.",
+        image: "https://www.google.com/search?q=sesamum+stem+rot&tbm=isch",
+        causes: "Fungus Sclerotium rolfsii",
+        symptoms: "Soft rot at stem base, white fungal growth",
+        prevention: "Good drainage, soil treatment with fungicides"
+    },
+    "Blight": {
+        description: "Sesame blight leads to brown leaf lesions that merge and dry out the leaves. It weakens the plant and can significantly reduce seed production if not treated.",
+        image: "https://www.google.com/search?q=sesamum+blight&tbm=isch",
+        causes: "Fungus Alternaria sesami",
+        symptoms: "Dark brown spots with yellow halos on leaves",
+        prevention: "Spray mancozeb or copper fungicide"
+    },
+    "Leaf Spot": {
+        description: "Leaf spot in sesame appears as circular or irregular dark spots that expand and cause premature leaf drop. It spreads quickly during warm and wet weather.",
+        image: "https://www.google.com/search?q=sesamum+leaf+spot&tbm=isch",
+        causes: "Fungus Cercospora sesami",
+        symptoms: "Dark circular spots, early leaf fall",
+        prevention: "Use disease-free seeds, spray fungicides"
+    },
+    "Wilt": {
+        description: "Wilt in sesame causes sudden yellowing and wilting of the entire plant. It starts from the lower leaves and is often caused by soil-borne pathogens in warm climates.",
+        image: "https://www.google.com/search?q=sesamum+wilt&tbm=isch",
+        causes: "Fungus Fusarium oxysporum",
+        symptoms: "Leaf yellowing, drooping, and plant death",
+        prevention: "Crop rotation, resistant varieties, soil drenching"
+    },
+
+>>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
     // Banana Diseases
     "Panama Disease": {
         description: "Panama disease (Fusarium wilt) is a soil-borne fungal disease threatening global banana production. The tropical race 4 (TR4) strain affects Cavendish bananas and persists in soil for decades. There is no cure for infected plants.",
         image: "https://www.google.com/search?q=banana+panama+disease&tbm=isch",
         causes: "Fungus Fusarium oxysporum f. sp. cubense",
+<<<<<<< HEAD
         symptoms: "Yellowing leaves, splitting of pseudostem, vascular discoloration",
+=======
+        symptoms: "Yellowing lSesamumeaves, splitting of pseudostem, vascular discoloration",
+>>>>>>> bba91e1 (Linking the Login and Contact Us page to Excel Sheet and Improving the overall CSS)
         prevention: "Use disease-free plants, prevent soil movement, plant resistant cultivars"
     },
     "Sigatoka": {
