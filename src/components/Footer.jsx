@@ -15,7 +15,7 @@ const Footer = () => {
               <h3 className="text-2xl font-bold text-white">AgriMed</h3>
             </div>
             <p className="text-green-200 text-sm">
-              Helping farmers find the best solutions for crop diseases since 2023. Empowering agriculture through technology.
+              Helping farmers find the best solutions for crop diseases since 2025. Empowering agriculture through technology.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
             </h3>
             <address className="text-green-300 text-sm not-italic leading-6 space-y-2">
               <p className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> 123 Farm Road, Agricultural City, AC 12345
+                <MapPin className="w-4 h-4" />RCOEM, Nagpur, Maharashtra, India
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
@@ -61,7 +61,7 @@ const Footer = () => {
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <a href="tel:+11234567890" className="hover:text-white hover:underline">+1 (123) 456-7890</a>
+                <a href="tel:+11234567890" className="hover:text-white hover:underline">+91 83295 54046</a>
               </p>
             </address>
           </div>

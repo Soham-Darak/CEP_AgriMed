@@ -7,6 +7,7 @@ import Result from './components/Result';
 import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import AboutUs from './components/AboutUs';
 
 const App = () => {
   return (
@@ -79,6 +80,20 @@ const App = () => {
               <Header />
               <main className="flex-grow container mx-auto px-4 py-6">
                 <TermsOfService />
+              </main>
+              <Footer />
+            </div>
+          }
+        />
+
+        {/* About Us route */}
+        <Route
+          path="/about"
+          element={
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <main className="flex-grow container mx-auto px-4 py-6">
+                <AboutUs />
               </main>
               <Footer />
             </div>

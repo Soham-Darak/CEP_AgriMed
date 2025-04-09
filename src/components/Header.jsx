@@ -8,7 +8,7 @@ const MotionLink = motion(Link);
 const Header = () => {
   const [isTranslateReady, setIsTranslateReady] = useState(false);
 
-  // --- Google Translate Setup (unchanged) ---
+  // Initialize Google Translate
   useEffect(() => {
     const existingScript = document.getElementById("google-translate-script");
     const existingWidget = document.querySelector(".goog-te-combo");
@@ -39,6 +39,7 @@ const Header = () => {
       s.async = true;
       document.body.appendChild(s);
     }
+
     window.googleTranslateElementInit = initTranslate;
     if (window.google?.translate) initTranslate();
 
@@ -47,6 +48,7 @@ const Header = () => {
     };
   }, []);
 
+  // Style Google Translate Widget
   useEffect(() => {
     if (!isTranslateReady) return;
     const style = document.createElement("style");
@@ -74,14 +76,12 @@ const Header = () => {
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
   }, [isTranslateReady]);
-  // --- end Google Translate ---
 
   return (
     <>
       <div className="h-3 bg-white"></div>
       <header className="bg-white shadow-md border-b border-green-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-          
           {/* Logo */}
           <Link to="/home" className="flex items-center gap-2 group">
             <img
@@ -94,13 +94,17 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* Nav + Translate */}
+          {/* Navigation + Language Dropdown */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto">
-            
-            {/* Navigation */}
+            {/* Navigation Links */}
             <nav className="flex items-center gap-8">
-              {["Home", "Contact Us"].map((label) => {
-                const path = label === "Home" ? "/home" : "/contact";
+              {["Home", "About Us", "Contact Us"].map((label) => {
+                const path =
+                  label === "Home"
+                    ? "/home"
+                    : label === "About Us"
+                    ? "/about"
+                    : "/contact";
                 return (
                   <div key={label} className="relative group">
                     <MotionLink
@@ -111,14 +115,13 @@ const Header = () => {
                     >
                       {label}
                     </MotionLink>
-                    {/* Animated underline */}
                     <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-green-500 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-200" />
                   </div>
                 );
               })}
             </nav>
 
-            {/* Translate Widget */}
+            {/* Google Translate Widget */}
             <div className="flex-shrink-0 w-[160px]">
               <div
                 id="google_translate_element"

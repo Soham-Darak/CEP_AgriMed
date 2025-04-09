@@ -97,7 +97,7 @@ const ContactUs = () => {
                   value={formData.contact}
                   onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                   className="w-full p-4 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500"
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 83295 54046"
                 />
               </div>
 
@@ -141,7 +141,7 @@ const ContactUs = () => {
                 <Phone className="w-6 h-6 text-green-600 mt-1" />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">Primary Contact</h3>
-                  <p className="text-gray-600">+91 98765 43210</p>
+                  <p className="text-gray-600">+91 83295 54046</p>
                 </div>
               </div>
 
@@ -149,7 +149,7 @@ const ContactUs = () => {
                 <MessageCircle className="w-6 h-6 text-green-600 mt-1" />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">WhatsApp Support</h3>
-                  <p className="text-gray-600">+91 91234 56789</p>
+                  <p className="text-gray-600">+91 83295 54046</p>
                 </div>
               </div>
 
@@ -157,7 +157,7 @@ const ContactUs = () => {
                 <MapPin className="w-6 h-6 text-green-600 mt-1" />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">Address</h3>
-                  <p className="text-gray-600">AgriCompare HQ, Pune, Maharashtra, India</p>
+                  <p className="text-gray-600">AgriMed, Nagpur, Maharashtra, India</p>
                 </div>
               </div>
             </div>
