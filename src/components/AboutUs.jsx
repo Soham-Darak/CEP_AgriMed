@@ -9,13 +9,13 @@ const teamMembers = [
     role: "Backend Developer",
     image: "/src/Images/Purva.jpg",
     desc: "Purva expertly structures the server-side logic, ensuring smooth database interactions and API integrations.",
-    linkedin: "https://linkedin.com/in/purvakhandelwal",
-    email: "mailto:purva@example.com"
+    linkedin: "https://www.linkedin.com/in/purva-khandelwal-6a21872b4/",
+    email: "mailto:khandelwalps_2@rknec.edu"
   },
   {
     name: "Yashika Rathi",
     role: "Data Analyst",
-    image: "/src/Images/Muskan.jpg",
+    image: "/src/Images/Yashika.jpg",
     desc: "Yashika transforms complex agricultural data into actionable insights, guiding our features and improvements.",
     linkedin: "https://linkedin.com/in/yashika-rathi-1594112b8/",
     email: "mailto:rathiyp_2@rknec.edu"
@@ -25,15 +25,15 @@ const teamMembers = [
     role: "Frontend Developer",
     image: "/src/Images/Shreya.jpg",
     desc: "Shreya brings our UI to life with clean, intuitive layouts and responsive design elements for all devices.",
-    linkedin: "https://linkedin.com/in/shreyarathi",
-    email: "mailto:shreya@example.com"
+    linkedin: "https://www.linkedin.com/in/shreya-rathi-89554a330/",
+    email: "mailto:rathisg_2@rknec.edu"
   },
   {
     name: "Khushal Taori",
     role: "UI/UX Designer",
     image: "/src/Images/Khushal.jpg",
     desc: "Khushal focuses on crafting engaging, user-friendly interfaces that make navigation seamless and enjoyable.",
-    linkedin: "https://linkedin.com/in/khushaltaori",
+    linkedin: "https://www.linkedin.com/in/khushal-rajesh-taori-267105331/i",
     email: "mailto:khushal@example.com"
   },
   {

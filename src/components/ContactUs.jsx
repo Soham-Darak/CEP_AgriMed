@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MapPin, MessageCircle } from 'lucide-react';
 
@@ -17,7 +17,6 @@ const ContactUs = () => {
     setStatus('');
 
     const { name, contact, message } = formData;
-
     if (!name.trim() || !contact.trim() || !message.trim()) {
       setStatus('Please fill all fields');
       setIsSubmitting(false);
@@ -27,9 +26,7 @@ const ContactUs = () => {
     try {
       const response = await fetch('https://sheetdb.io/api/v1/oj009bqp2kvp5', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           data: [
             {
@@ -56,112 +53,120 @@ const ContactUs = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center p-6"
+      className="min-h-screen bg-gradient-to-bl from-green-50 to-green-100 flex items-center justify-center px-4 py-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
     >
       <motion.div
-        className="max-w-4xl w-full bg-white rounded-2xl shadow-xl p-6 md:p-10 relative"
-        initial={{ scale: 0.95 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5 }}
+        className="w-full max-w-6xl bg-white shadow-2xl rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2"
+        initial={{ y: 30 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        <div className="absolute -top-20 -right-20 w-40 h-40 bg-green-200 rounded-full opacity-20"></div>
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-green-300 rounded-full opacity-10"></div>
+        {/* Left - Info Section */}
+        <div className="bg-green-600 text-white p-8 sm:p-10 flex flex-col justify-center gap-6">
+          <motion.h2
+            className="text-3xl sm:text-4xl font-bold leading-tight"
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Get in Touch
+          </motion.h2>
+          <p className="text-base sm:text-lg opacity-90">
+            We'd love to hear from you! Feedback, questions, or ideas — we're all ears.
+          </p>
 
-        <div className="relative z-10">
-          <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-2">Contact Us</h1>
-            <p className="text-lg text-green-600">We’d love to hear from you! Reach out to us with any questions or feedback.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Form */}
-            <form className="space-y-5" onSubmit={handleSubmit}>
+          <div className="space-y-5 sm:space-y-6">
+            <div className="flex items-start gap-4">
+              <Phone className="w-5 h-5 sm:w-6 sm:h-6 mt-1" />
               <div>
-                <label className="block text-gray-700 font-medium mb-1">Name</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full p-4 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500"
-                  placeholder="Your Name"
-                />
+                <h3 className="text-base sm:text-lg font-semibold">Call Us</h3>
+                <p className="text-sm sm:text-base">+91 83295 54046</p>
               </div>
-
+            </div>
+            <div className="flex items-start gap-4">
+              <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mt-1" />
               <div>
-                <label className="block text-gray-700 font-medium mb-1">Contact Number</label>
-                <input
-                  type="text"
-                  value={formData.contact}
-                  onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                  className="w-full p-4 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500"
-                  placeholder="+91 83295 54046"
-                />
+                <h3 className="text-base sm:text-lg font-semibold">WhatsApp</h3>
+                <p className="text-sm sm:text-base">+91 83295 54046</p>
               </div>
-
+            </div>
+            <div className="flex items-start gap-4">
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 mt-1" />
               <div>
-                <label className="block text-gray-700 font-medium mb-1">Message</label>
-                <textarea
-                  rows="4"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full p-4 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500"
-                  placeholder="How can we help you?"
-                ></textarea>
-              </div>
-
-              {status && (
-                <div
-                  className={`text-sm p-3 rounded-md text-center font-medium ${
-                    status.includes('successfully') ? 'text-green-700 bg-green-100' : 'text-red-700 bg-red-100'
-                  }`}
-                >
-                  {status}
-                </div>
-              )}
-
-              <motion.button
-                type="submit"
-                className={`w-full py-4 ${
-                  isSubmitting ? 'bg-green-300 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
-                } text-white rounded-xl font-semibold text-lg shadow-md transition-all`}
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </motion.button>
-            </form>
-
-            {/* Contact Info */}
-            <div className="flex flex-col justify-center gap-6">
-              <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-green-600 mt-1" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800">Primary Contact</h3>
-                  <p className="text-gray-600">+91 83295 54046</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <MessageCircle className="w-6 h-6 text-green-600 mt-1" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800">WhatsApp Support</h3>
-                  <p className="text-gray-600">+91 83295 54046</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-green-600 mt-1" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800">Address</h3>
-                  <p className="text-gray-600">AgriMed, Nagpur, Maharashtra, India</p>
-                </div>
+                <h3 className="text-base sm:text-lg font-semibold">Location</h3>
+                <p className="text-sm sm:text-base">AgriMed, Nagpur, Maharashtra, India</p>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Right - Form Section */}
+        <div className="p-6 sm:p-10 bg-white">
+          <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-green-800">Contact Form</h3>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Your Name"
+                className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Contact Number</label>
+              <input
+                type="text"
+                value={formData.contact}
+                onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                placeholder="+91 83295 54046"
+                className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea
+                rows="4"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder="How can we help you?"
+                className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition resize-none"
+              />
+            </div>
+
+            {status && (
+              <div
+                className={`text-sm p-3 rounded-lg text-center font-medium transition-all ${
+                  status.includes('successfully')
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-red-100 text-red-700'
+                }`}
+              >
+                {status}
+              </div>
+            )}
+
+            <motion.button
+              type="submit"
+              className={`w-full py-3 px-6 rounded-xl font-semibold text-white shadow-lg transition ${
+                isSubmitting
+                  ? 'bg-green-300 cursor-not-allowed'
+                  : 'bg-green-600 hover:bg-green-700'
+              }`}
+              disabled={isSubmitting}
+              whileHover={!isSubmitting && { scale: 1.02 }}
+              whileTap={!isSubmitting && { scale: 0.98 }}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </motion.button>
+          </form>
         </div>
       </motion.div>
     </motion.div>

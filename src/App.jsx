@@ -8,100 +8,112 @@ import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import AboutUs from './components/AboutUs';
+import Chatbot from './components/Chatbot';
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-        {/* Root path - Login only (no Header/Footer) */}
-        <Route path="/" element={<Login />} />
+  try {
+    return (
+      <Router>
+        <Routes>
+          {/* Login Page */}
+          <Route path="/" element={<Login />} />
 
-        {/* Home route */}
-        <Route
-          path="/home"
-          element={
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow container mx-auto px-4 py-6">
-                <Home />
-              </main>
-              <Footer />
-            </div>
-          }
-        />
+          {/* Home Page */}
+          <Route
+            path="/home"
+            element={
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow container mx-auto px-4 py-6">
+                  <Home />
+                </main>
+                <Footer />
+                <Chatbot />
+              </div>
+            }
+          />
 
-        {/* Result route */}
-        <Route
-          path="/result"
-          element={
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow container mx-auto px-4 py-6">
-                <Result />
-              </main>
-              <Footer />
-            </div>
-          }
-        />
+          {/* Result Page */}
+          <Route
+            path="/result"
+            element={
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow container mx-auto px-4 py-6">
+                  <Result />
+                </main>
+                <Footer />
+                <Chatbot />
+              </div>
+            }
+          />
 
-        {/* Contact Us route */}
-        <Route
-          path="/contact"
-          element={
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow container mx-auto px-4 py-6">
-                <ContactUs />
-              </main>
-              <Footer />
-            </div>
-          }
-        />
+          {/* Contact Us Page */}
+          <Route
+            path="/contact"
+            element={
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow container mx-auto px-4 py-6">
+                  <ContactUs />
+                </main>
+                <Footer />
+                <Chatbot />
+              </div>
+            }
+          />
 
-        {/* Privacy Policy route */}
-        <Route
-          path="/privacy-policy"
-          element={
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow container mx-auto px-4 py-6">
-                <PrivacyPolicy />
-              </main>
-              <Footer />
-            </div>
-          }
-        />
+          {/* Privacy Policy Page */}
+          <Route
+            path="/privacy-policy"
+            element={
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow container mx-auto px-4 py-6">
+                  <PrivacyPolicy />
+                </main>
+                <Footer />
+                <Chatbot />
+              </div>
+            }
+          />
 
-        {/* Terms of Service route */}
-        <Route
-          path="/terms-of-service"
-          element={
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow container mx-auto px-4 py-6">
-                <TermsOfService />
-              </main>
-              <Footer />
-            </div>
-          }
-        />
+          {/* Terms of Service Page */}
+          <Route
+            path="/terms-of-service"
+            element={
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow container mx-auto px-4 py-6">
+                  <TermsOfService />
+                </main>
+                <Footer />
+                <Chatbot />
+              </div>
+            }
+          />
 
-        {/* About Us route */}
-        <Route
-          path="/about"
-          element={
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow container mx-auto px-4 py-6">
-                <AboutUs />
-              </main>
-              <Footer />
-            </div>
-          }
-        />
-      </Routes>
-    </Router>
-  );
+          {/* About Us Page */}
+          <Route
+            path="/about"
+            element={
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow container mx-auto px-4 py-6">
+                  <AboutUs />
+                </main>
+                <Footer />
+                <Chatbot />
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
+    );
+  } catch (error) {
+    console.error("Error loading the app:", error);
+    return <div>Error loading the app</div>;
+  }
 };
 
 export default App;
