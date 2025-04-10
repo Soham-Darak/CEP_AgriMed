@@ -1,40 +1,35 @@
-import React, { useState, useRef, useEffect } from "react";
-import { SendHorizonal, MessageCircle } from "lucide-react";
-import agriLogo from "../assets/AgricompareLogo.png";
-import faqData from "../data/faqData"; // Import FAQ data
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// src/components/Chatbot.jsx
+import React, { useState, useRef, useEffect } from 'react';
+import { SendHorizonal, MessageCircle } from 'lucide-react';
+import agriLogo from '../assets/AgricompareLogo.png';
+import faqData from '../data/faqData'; // Import FAQ data
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
     {
       text: "Hello! I'm AgriMed Assistant. How can I help you?",
-      type: "bot",
+      type: 'bot',
     },
   ]);
   const [loading, setLoading] = useState(false);
   const chatRef = useRef(null);
 
-  // Access the environment variable using process.env
-  const apiKey = process.env.GEMINI_API_KEY;
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
   const wordLimit = 30; // Word limit for responses
 
   // Function to limit the response to 30 words
   const limitWords = (text) => {
-    const words = text.split(" ");
-    return words.slice(0, wordLimit).join(" ") + (words.length > wordLimit ? "..." : "");
+    const words = text.split(' ');
+    return words.slice(0, wordLimit).join(' ') + (words.length > wordLimit ? '...' : '');
   };
 
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
 
-    const userMessage = { text: input.trim(), type: "user" };
+    const userMessage = { text: input.trim(), type: 'user' };
     setMessages((prev) => [...prev, userMessage]);
-    setInput("");
+    setInput('');
     setLoading(true);
 
     // Check if the user message matches a pre-defined FAQ question
@@ -46,32 +41,37 @@ const Chatbot = () => {
       // If a match is found in the FAQ data, send the answer with word limit applied
       setMessages((prev) => [
         ...prev,
-        { text: limitWords(faqAnswer.answer), type: "bot" },
+        { text: limitWords(faqAnswer.answer), type: 'bot' },
       ]);
       setLoading(false);
     } else {
-      // If no match is found, call the Gemini API
+      // If no match is found, call the backend API
       try {
-        const result = await model.generateContent(userMessage.text);
-        const botResponse =
-          result.response.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: userMessage.text }),
+        });
+
+        const data = await res.json();
+        const botResponse = data.reply;
 
         if (botResponse) {
           setMessages((prev) => [
             ...prev,
-            { text: limitWords(botResponse), type: "bot" },
+            { text: limitWords(botResponse), type: 'bot' },
           ]);
         } else {
           setMessages((prev) => [
             ...prev,
-            { text: "No response received.", type: "bot" },
+            { text: 'No response received.', type: 'bot' },
           ]);
         }
       } catch (error) {
-        console.error("Gemini API Error:", error);
+        console.error('Error communicating with backend:', error);
         setMessages((prev) => [
           ...prev,
-          { text: "Error communicating with AI.", type: "bot" },
+          { text: 'Error communicating with AI.', type: 'bot' },
         ]);
       } finally {
         setLoading(false);
@@ -80,11 +80,11 @@ const Chatbot = () => {
   };
 
   useEffect(() => {
-    chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: "smooth" });
+    chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' });
   }, [messages]);
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter" && !loading) {
+    if (e.key === 'Enter' && !loading) {
       sendMessage();
     }
   };
@@ -112,7 +112,7 @@ const Chatbot = () => {
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
-                    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23ffffff'><rect width='100' height='100' rx='10'/></svg>";
+                    'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' fill=\'%23ffffff\'><rect width=\'100\' height=\'100\' rx=\'10\'/></svg>';
                 }}
               />
               AgriMed ChatBot
@@ -126,20 +126,17 @@ const Chatbot = () => {
             </button>
           </div>
 
-          <div
-            className="flex-1 overflow-y-auto p-4 space-y-4 bg-green-50"
-            ref={chatRef}
-          >
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-green-50" ref={chatRef}>
             {messages.map((msg, index) => (
               <div
                 key={index}
                 className={`p-3 rounded-xl max-w-[80%] text-sm md:text-base ${
-                  msg.type === "user"
-                    ? "bg-green-200 self-end ml-auto text-right"
-                    : "bg-white shadow-sm text-left"
+                  msg.type === 'user'
+                    ? 'bg-green-200 self-end ml-auto text-right'
+                    : 'bg-white shadow-sm text-left'
                 }`}
               >
-                {msg.text.split("\n").map((line, i) => (
+                {msg.text.split('\n').map((line, i) => (
                   <p key={i}>{line}</p>
                 ))}
               </div>
@@ -150,15 +147,15 @@ const Chatbot = () => {
                 <div className="flex space-x-1">
                   <div
                     className="w-2 h-2 bg-green-500 rounded-full animate-bounce"
-                    style={{ animationDelay: "0ms" }}
+                    style={{ animationDelay: '0ms' }}
                   ></div>
                   <div
                     className="w-2 h-2 bg-green-500 rounded-full animate-bounce"
-                    style={{ animationDelay: "150ms" }}
+                    style={{ animationDelay: '150ms' }}
                   ></div>
                   <div
                     className="w-2 h-2 bg-green-500 rounded-full animate-bounce"
-                    style={{ animationDelay: "300ms" }}
+                    style={{ animationDelay: '300ms' }}
                   ></div>
                 </div>
               </div>
@@ -180,8 +177,8 @@ const Chatbot = () => {
               disabled={loading || !input.trim()}
               className={`ml-2 p-2 rounded-xl transition ${
                 loading || !input.trim()
-                  ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-green-600 hover:bg-green-700 text-white"
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-green-600 hover:bg-green-700 text-white'
               }`}
               aria-label="Send message"
             >
