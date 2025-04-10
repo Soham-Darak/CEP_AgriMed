@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { SendHorizonal, MessageCircle } from "lucide-react";
 import agriLogo from "../assets/AgricompareLogo.png";
 import faqData from "../data/faqData"; // Import FAQ data
-import OpenAI from "openai";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,13 +15,8 @@ const Chatbot = () => {
   const [loading, setLoading] = useState(false);
   const chatRef = useRef(null);
 
-  // Access the environment variable using process.env
-  const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
-  const openai = apiKey ? new OpenAI({ apiKey: apiKey, dangerouslyAllowBrowser: true }) : null; // Initialize only if apiKey exists
+  const wordLimit = 30;
 
-  const wordLimit = 30; // Word limit for responses
-
-  // Function to limit the response to 30 words
   const limitWords = (text) => {
     const words = text.split(" ");
     return words.slice(0, wordLimit).join(" ") + (words.length > wordLimit ? "..." : "");
@@ -36,7 +30,6 @@ const Chatbot = () => {
     setInput("");
     setLoading(true);
 
-    // Handle greeting fallback
     const greetings = ["hi", "hello", "hey", "good morning", "good afternoon"];
     if (greetings.some((greet) => input.trim().toLowerCase().includes(greet))) {
       setMessages((prev) => [
@@ -47,55 +40,47 @@ const Chatbot = () => {
       return;
     }
 
-    // Check if the user message matches a pre-defined FAQ question
     const faqAnswer = faqData.find(
       (faq) => faq.question.toLowerCase() === input.trim().toLowerCase()
     );
 
     if (faqAnswer) {
-      // If a match is found in the FAQ data, send the answer with word limit applied
       setMessages((prev) => [
         ...prev,
         { text: limitWords(faqAnswer.answer), type: "bot" },
       ]);
       setLoading(false);
     } else {
-      // If no match is found, call the OpenAI API
-      if (openai) {
-        try {
-          const completion = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo", // Or another suitable model
-            messages: [{ role: "user", content: userMessage.text }],
-            max_tokens: 100, // Adjust as needed
-          });
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: input.trim() }),
+        });
 
-          const botResponse = completion.choices[0]?.message?.content?.trim();
+        const data = await response.json();
+        const botResponse = data?.reply;
 
-          if (botResponse) {
-            setMessages((prev) => [
-              ...prev,
-              { text: limitWords(botResponse), type: "bot" },
-            ]);
-          } else {
-            setMessages((prev) => [
-              ...prev,
-              { text: "No response received.", type: "bot" },
-            ]);
-          }
-        } catch (error) {
-          console.error("OpenAI API Error:", error);
+        if (botResponse) {
           setMessages((prev) => [
             ...prev,
-            { text: "Error communicating with AI. Please try again later.", type: "bot" },
+            { text: limitWords(botResponse), type: "bot" },
           ]);
-        } finally {
-          setLoading(false);
+        } else {
+          setMessages((prev) => [
+            ...prev,
+            { text: "No response received.", type: "bot" },
+          ]);
         }
-      } else {
+      } catch (error) {
+        console.error("API Error:", error);
         setMessages((prev) => [
           ...prev,
-          { text: "OpenAI API key not configured.", type: "bot" },
+          { text: "Error contacting AI. Try again later.", type: "bot" },
         ]);
+      } finally {
         setLoading(false);
       }
     }
@@ -131,11 +116,6 @@ const Chatbot = () => {
                 src={agriLogo}
                 alt="AgriMed Logo"
                 className="h-6 w-6 object-contain"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src =
-                    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23ffffff'><rect width='100' height='100' rx='10'/></svg>";
-                }}
               />
               AgriMed ChatBot
             </div>
@@ -148,10 +128,7 @@ const Chatbot = () => {
             </button>
           </div>
 
-          <div
-            className="flex-1 overflow-y-auto p-4 space-y-4 bg-green-50"
-            ref={chatRef}
-          >
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-green-50" ref={chatRef}>
             {messages.map((msg, index) => (
               <div
                 key={index}
@@ -170,10 +147,7 @@ const Chatbot = () => {
               <div className="flex items-center text-green-500 text-sm">
                 <div className="animate-pulse mr-2">Typing</div>
                 <div className="flex space-x-1">
-                  <div
-                    className="w-2 h-2 bg-green-500 rounded-full animate-bounce"
-                    style={{ animationDelay: "0ms" }}
-                  ></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
                   <div
                     className="w-2 h-2 bg-green-500 rounded-full animate-bounce"
                     style={{ animationDelay: "150ms" }}
@@ -195,7 +169,6 @@ const Chatbot = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               disabled={loading}
-              aria-label="Type your message"
             />
             <button
               onClick={sendMessage}
@@ -205,7 +178,6 @@ const Chatbot = () => {
                   ? "bg-gray-300 cursor-not-allowed"
                   : "bg-green-600 hover:bg-green-700 text-white"
               }`}
-              aria-label="Send message"
             >
               <SendHorizonal size={20} />
             </button>
