@@ -16,7 +16,7 @@ const Chatbot = () => {
     const [loading, setLoading] = useState(false);
     const chatRef = useRef(null);
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(import.meta.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const wordLimit = 30; // Word limit for responses
@@ -34,6 +34,17 @@ const Chatbot = () => {
         setMessages((prev) => [...prev, userMessage]);
         setInput("");
         setLoading(true);
+
+        // Handle greeting fallback
+        const greetings = ["hi", "hello", "hey", "good morning", "good afternoon"];
+        if (greetings.some((greet) => input.trim().toLowerCase().includes(greet))) {
+            setMessages((prev) => [
+                ...prev,
+                { text: "Hello! How can I assist you today?", type: "bot" },
+            ]);
+            setLoading(false);
+            return;
+        }
 
         // Check if the user message matches a pre-defined FAQ question
         const faqAnswer = faqData.find(
@@ -69,7 +80,7 @@ const Chatbot = () => {
                 console.error("Gemini API Error:", error);
                 setMessages((prev) => [
                     ...prev,
-                    { text: "Error communicating with AI.", type: "bot" },
+                    { text: "Error communicating with AI. Please try again later.", type: "bot" },
                 ]);
             } finally {
                 setLoading(false);
