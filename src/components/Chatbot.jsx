@@ -1,4 +1,3 @@
-// src/components/Chatbot.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { SendHorizonal, MessageCircle } from 'lucide-react';
 import agriLogo from '../assets/AgricompareLogo.png';
@@ -9,7 +8,7 @@ const Chatbot = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
     {
-      text: "Hello! I'm AgriMed Assistant. How can I help you?",
+      text: 'Hello! I\'m AgriMed Assistant. How can I help you?',
       type: 'bot',
     },
   ]);
@@ -45,28 +44,20 @@ const Chatbot = () => {
       ]);
       setLoading(false);
     } else {
-      // If no match is found, call the backend API
+      // If no match is found, call the backend API (serverless function)
       try {
         const res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt: userMessage.text }),
         });
-
         const data = await res.json();
-        const botResponse = data.reply;
 
-        if (botResponse) {
-          setMessages((prev) => [
-            ...prev,
-            { text: limitWords(botResponse), type: 'bot' },
-          ]);
-        } else {
-          setMessages((prev) => [
-            ...prev,
-            { text: 'No response received.', type: 'bot' },
-          ]);
-        }
+        const botResponse = data.reply || 'No response received.';
+        setMessages((prev) => [
+          ...prev,
+          { text: limitWords(botResponse), type: 'bot' },
+        ]);
       } catch (error) {
         console.error('Error communicating with backend:', error);
         setMessages((prev) => [
@@ -112,7 +103,7 @@ const Chatbot = () => {
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
-                    'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' fill=\'%23ffffff\'><rect width=\'100\' height=\'100\' rx=\'10\'/></svg>';
+                    'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff"><rect width="100" height="100" rx="10"/></svg>';
                 }}
               />
               AgriMed ChatBot
@@ -126,7 +117,10 @@ const Chatbot = () => {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-green-50" ref={chatRef}>
+          <div
+            className="flex-1 overflow-y-auto p-4 space-y-4 bg-green-50"
+            ref={chatRef}
+          >
             {messages.map((msg, index) => (
               <div
                 key={index}
