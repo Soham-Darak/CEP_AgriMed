@@ -3,11 +3,18 @@ import { motion } from 'framer-motion';
 import { BadgeCheck, Leaf, ShieldCheck, Users, Lightbulb, CheckCircle, Mail, Linkedin } from 'lucide-react';
 import Marquee from 'react-fast-marquee';
 
+// ✅ Properly imported images
+import PurvaImg from '../Images/Purva.jpg';
+import SohamImg from '../Images/Soham.jpg';
+import KhushalImg from '../Images/Khushal.jpg';
+import ShreyaImg from '../Images/Shreya.jpg';
+import YashikaImg from '../Images/Yashika.jpg';
+
 const teamMembers = [
   {
     name: "Purva Khandelwal",
     role: "Backend Developer",
-    image: "/src/Images/Purva.jpg",
+    image: PurvaImg,
     desc: "Purva expertly structures the server-side logic, ensuring smooth database interactions and API integrations.",
     linkedin: "https://www.linkedin.com/in/purva-khandelwal-6a21872b4/",
     email: "mailto:khandelwalps_2@rknec.edu"
@@ -15,7 +22,7 @@ const teamMembers = [
   {
     name: "Yashika Rathi",
     role: "Data Analyst",
-    image: "/src/Images/Yashika.jpg",
+    image: YashikaImg,
     desc: "Yashika transforms complex agricultural data into actionable insights, guiding our features and improvements.",
     linkedin: "https://linkedin.com/in/yashika-rathi-1594112b8/",
     email: "mailto:rathiyp_2@rknec.edu"
@@ -23,7 +30,7 @@ const teamMembers = [
   {
     name: "Shreya Rathi",
     role: "Frontend Developer",
-    image: "/src/Images/Shreya.jpg",
+    image: ShreyaImg,
     desc: "Shreya brings our UI to life with clean, intuitive layouts and responsive design elements for all devices.",
     linkedin: "https://www.linkedin.com/in/shreya-rathi-89554a330/",
     email: "mailto:rathisg_2@rknec.edu"
@@ -31,15 +38,15 @@ const teamMembers = [
   {
     name: "Khushal Taori",
     role: "UI/UX Designer",
-    image: "/src/Images/Khushal.jpg",
+    image: KhushalImg,
     desc: "Khushal focuses on crafting engaging, user-friendly interfaces that make navigation seamless and enjoyable.",
-    linkedin: "https://www.linkedin.com/in/khushal-rajesh-taori-267105331/i",
+    linkedin: "https://www.linkedin.com/in/khushal-rajesh-taori-267105331/",
     email: "mailto:khushal@example.com"
   },
   {
     name: "Soham Darak",
     role: "Full Stack Developer",
-    image: "/src/Images/Soham.jpg",
+    image: SohamImg,
     desc: "Soham ensures seamless coordination between frontend and backend, creating robust and scalable systems.",
     linkedin: "https://www.linkedin.com/in/soham-darak/",
     email: "mailto:darakss@rknec.edu"
@@ -202,10 +209,10 @@ const AboutUs = () => {
             <p className="text-sm text-gray-500 mb-2">{member.role}</p>
             <p className="text-gray-600 text-sm mb-2 leading-relaxed">{member.desc}</p>
             <div className="flex justify-center gap-4 mt-2">
-              <a href={member.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-blue-700">
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700">
                 <Linkedin />
               </a>
-              <a href={member.email} aria-label="Email" target="_blank" rel="noopener noreferrer" className="text-red-600">
+              <a href={member.email} target="_blank" rel="noopener noreferrer" className="text-red-600">
                 <Mail />
               </a>
             </div>
@@ -241,17 +248,6 @@ const AboutUs = () => {
           ))}
         </Marquee>
       </section>
-
-      {/* CTA Footer */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        className="text-center mt-8"
-      >
-        <h3 className="text-xl font-bold text-green-700">Want to get involved or give feedback?</h3>
-        <p className="text-gray-600 mt-2">Contact us or connect via email</p>
-      </motion.div>
     </div>
   );
 };
