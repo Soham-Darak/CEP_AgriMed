@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, Info, Home, Contact, Lock, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import agriLogo from '../assets/AgriCompare Logo.png';
+import agriLogo from '../assets/AgriCompareLogo.png';
 
 const Footer = () => {
   return (
