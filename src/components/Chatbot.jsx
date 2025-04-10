@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { SendHorizonal, MessageCircle } from "lucide-react";
-import agriLogo from "../assets/AgriCompareLogo.png";
+import agriLogo from "../assets/AgricompareLogo.png";
 import faqData from "../data/faqData"; // Import FAQ data
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
