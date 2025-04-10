@@ -21,7 +21,7 @@ const Chatbot = () => {
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-  const wordLimit = 0; // Word limit for responses
+  const wordLimit = 30; // Word limit for responses
 
   // Function to limit the response to 30 words
   const limitWords = (text) => {
