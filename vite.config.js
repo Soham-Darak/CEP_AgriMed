@@ -19,8 +19,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  define: {
-    'import.meta.env.VITE_GEMINI_API_KEY': JSON.stringify('AIzaSyDh7LSKmpWwzfakX2rRi54LYM_mbi-Hblw')
   }
 })

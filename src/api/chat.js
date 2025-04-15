@@ -5,7 +5,7 @@ export async function sendChatMessage(message) {
     throw new Error('Message is required');
   }
 
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY || API_CONFIG.GEMINI_API_KEY;
+  const apiKey = API_CONFIG.GEMINI_API_KEY;
   console.log('Using API Key:', apiKey ? 'Configured' : 'Not configured');
 
   if (!apiKey) {
