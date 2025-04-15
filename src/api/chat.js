@@ -6,10 +6,11 @@ export async function sendChatMessage(message) {
   }
 
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-  console.log('Using API Key:', apiKey ? 'Configured' : 'Not configured');
+  console.log('Environment:', import.meta.env);
+  console.log('API Key:', apiKey ? 'Configured' : 'Not configured');
 
   if (!apiKey) {
-    throw new Error('API key is not configured');
+    throw new Error('API key is not configured. Please check your .env file and ensure VITE_GEMINI_API_KEY is set.');
   }
 
   try {
