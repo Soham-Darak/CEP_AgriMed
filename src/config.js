@@ -1,5 +1,4 @@
 // API Configuration
 export const API_CONFIG = {
-  // API key is now managed through environment variables
-  // GEMINI_API_KEY: 'your_api_key_here'
+  GEMINI_API_KEY: import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyDh7LSKmpWwzfakX2rRi54LYM_mbi-Hblw'
 }; 
